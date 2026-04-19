@@ -5,13 +5,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: fastapi
+      app: fastapi-backend
       tier: backend
   replicas: 2
   template:
     metadata:
       labels:
-        app: fastapi
+        app: fastapi-backend
         tier: backend
     spec:
       containers:
