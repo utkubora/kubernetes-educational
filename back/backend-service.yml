@@ -7,15 +7,15 @@ metadata:
     tier: backend
 spec:
   # comment or delete the following line if you want to use a LoadBalancer
-  type: NodePort
+  # type: NodePort
   # if your cluster supports it, uncomment the following to automatically create
   # an external load-balanced IP for the frontend service.
-  # type: LoadBalancer
+  type: LoadBalancer
   ports:
   - protocol: TCP
     port: 8000
     targetPort: 8000
-    nodePort: 30007
+    # nodePort: 30007
   selector:
     app: fastapi-backend
     tier: backend
