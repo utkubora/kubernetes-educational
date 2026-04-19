@@ -12,7 +12,9 @@ spec:
   # an external load-balanced IP for the frontend service.
   # type: LoadBalancer
   ports:
-  - port: 8000
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
   selector:
     app: fastapi-backend
     tier: backend
