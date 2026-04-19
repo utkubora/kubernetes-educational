@@ -13,9 +13,9 @@ spec:
   type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 8000
+    port: 80
     targetPort: 8000
-    # nodePort: 30007
+    nodePort: 30007
   selector:
     app: fastapi-backend
     tier: backend
