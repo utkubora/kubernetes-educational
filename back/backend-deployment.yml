@@ -17,6 +17,7 @@ spec:
       containers:
       - name: fastapi-backend
         image: fastapi-backend:latest
+        imagePullPolicy: Never
         resources:
           requests:
             cpu: 100m
