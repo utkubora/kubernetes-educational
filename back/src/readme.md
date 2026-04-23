@@ -13,4 +13,5 @@ docker run -p 8000:8000 simple-fastapi-app
 # Retrieved 2026-04-19, License - CC BY-SA 4.0
 
 docker save my/local-image:v1.2.3 | sudo k3s ctr images import -
+docker save fastapi-backend:latest | sudo k3s ctr images import -
 

@@ -4,5 +4,5 @@ metadata:
   name: database-configmap
 data:
   database_url: database-service
-  database_name: test_db
-  database_port: 27017
+  database_name: "test_db"
+  database_port: "27017"
