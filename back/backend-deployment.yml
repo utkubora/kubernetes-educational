@@ -25,7 +25,6 @@ spec:
           limits:
             cpu: 200m
             memory: 100Mi
-
         ports:
         - containerPort: 8000
         readinessProbe:
@@ -40,3 +39,29 @@ spec:
             port: 8000
           initialDelaySeconds: 15
           periodSeconds: 20
+        env:
+        - name: MONGO_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: database-secret
+              key: mongo-root-username
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-secret
+              key: mongo-root-password
+        - name: MONGO_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: database-configmap
+              key: database_url
+        - name: MONGO_DB
+          valueFrom:
+            configMapKeyRef:
+              name: database-configmap
+              key: database_name
+        - name: MONGO_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: database-configmap
+              key: database_port
