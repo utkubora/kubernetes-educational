@@ -35,7 +35,13 @@ spec:
             secretKeyRef:
               name: database-secret
               key: mongo-root-password
-  volumes:
-  - name: database-data
-    persistentVolumeClaim:
-      claimName: database-persistent-volume-claim
+  volumeClaimTemplates:
+  - metadata:
+      name: database-data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      storageClassName: database-storage-local
+      resources:
+        requests:
+          storage: 5Gi
