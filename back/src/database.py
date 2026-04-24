@@ -43,6 +43,4 @@ def mongo_insertOne(collection,user):
 
 def mongo_findAll(collection):
     users = collection.find()
-
-    for user in users:
-        print(user)
+    return users

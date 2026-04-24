@@ -34,9 +34,13 @@ def get_items():
     Return all items
     """
 
+    result = []
     items_db = mongo_findAll(user_collection)
+    for item in items_db:
+        usr = User.model_validate(item)
+        result.append(usr)
 
-    return items_db
+    return result
 
 
 @app.get("/items/{item_id}", response_model=User)
@@ -48,7 +52,13 @@ def get_item(item_id: int):
     #    if item.id == item_id:
     #        return item
         
+    result = []
     items_db = mongo_findAll(user_collection)
+    for item in items_db:
+        usr = User.model_validate(item)
+        result.append(usr)
+
+    return result
 
     raise HTTPException(status_code=404, detail="Item not found")
 
