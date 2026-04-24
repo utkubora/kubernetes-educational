@@ -63,5 +63,5 @@ def create_item():
     #    if existing_item.id == item.id:
     #        raise HTTPException(status_code=400, detail="Item with this ID already exists")
     item = User(name="Utku",role="Engineer",skills=["Python", "MongoDB", "DevOps"])
-    mongo_insertOne(user_collection,item)
+    mongo_insertOne(user_collection,item.model_dump(mode="python"))
     return item
