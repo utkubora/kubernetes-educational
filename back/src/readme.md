@@ -15,3 +15,12 @@ docker run -p 8000:8000 simple-fastapi-app
 docker save my/local-image:v1.2.3 | sudo k3s ctr images import -
 docker save fastapi-backend:latest | sudo k3s ctr images import -
 
+--------------------------
+
+docker build -t fastapi-backend:latest .
+
+docker save fastapi-backend:latest -o fastapi-backend.tar
+
+sudo k3s ctr images import fastapi-backend.tar
+
+sudo k3s ctr images list | grep fastapi
