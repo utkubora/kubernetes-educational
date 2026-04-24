@@ -17,7 +17,7 @@ user_collection = mongo_client.get_collection("User")
 class User(BaseModel):
     name: str
     role: str
-    skills: list = []
+    skills: List[str] = []
 
 
 @app.get("/")
@@ -62,6 +62,6 @@ def create_item():
     #for existing_item in items_db:
     #    if existing_item.id == item.id:
     #        raise HTTPException(status_code=400, detail="Item with this ID already exists")
-    item = User("Utku","Engineer",["Python", "MongoDB", "DevOps"])
+    item = User(name="Utku",role="Engineer",skills=["Python", "MongoDB", "DevOps"])
     mongo_insertOne(user_collection,item)
     return item
