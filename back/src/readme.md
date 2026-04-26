@@ -24,3 +24,32 @@ docker save fastapi-backend:latest -o fastapi-backend.tar
 sudo k3s ctr images import fastapi-backend.tar
 
 sudo k3s ctr images list | grep fastapi
+
+
+--clear commands
+
+sudo k3s crictl images
+
+sudo k3s crictl rmi --prune
+
+sudo k3s crictl ps -a
+
+sudo k3s crictl rm $(sudo k3s crictl ps -a -q)
+
+sudo du -h /var/log/containers | sort -h | tail -20
+sudo journalctl --vacuum-size=500M
+
+-- node status
+kubectl describe node | grep -A5 "Conditions"
+kubectl get pods -A -o wide
+
+--ubuntu clear
+
+sudo apt clean
+sudo apt autoclean
+sudo apt autoremove --purge
+
+rm -rf ~/.cache/*
+rm -rf ~/.cache/thumbnails/*
+
+------------------------------
